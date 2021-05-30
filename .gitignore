@@ -164,3 +164,4 @@ Thumbs.db
 # 추가
 db.sqlite3
 .env
+__pycache__
