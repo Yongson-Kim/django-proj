@@ -2,8 +2,26 @@
 
 {% block content %}
 
-<div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
-    Test!!
-</div>
+    <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
+        Test!!
+    </div>
+
+    <form action="/account/hello_world/" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="hello_world_input">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="POST">
+        </div>
+    </form>
+
+    {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+        <h4>
+            {{ hello_world.text }}
+        </h4>
+        {% endfor %}
+    {% end if %}
 
 {% endblock %}

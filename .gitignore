@@ -163,8 +163,10 @@ Thumbs.db
 
 # 추가
 db.sqlite3
-.env
 __pycache__
+
+# environ 설정 저장 파일 -> Git으로 공유하면 안되는 파일
+# .env
 
 # 로컬 가상환경 명칭
 devenv
