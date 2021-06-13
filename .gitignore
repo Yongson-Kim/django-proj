@@ -165,3 +165,6 @@ Thumbs.db
 db.sqlite3
 .env
 __pycache__
+
+# 로컬 가상환경 명칭
+devenv
