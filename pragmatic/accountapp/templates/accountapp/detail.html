@@ -9,6 +9,20 @@
         <h2>
             {{ user.username }}
         </h2>
+
+        <a href="{% url 'accountapp:update' pk=user.pk %}">
+            <p>
+                --Change info
+            </p>
+        </a>
+
+        {% if target_user == user %}
+        <a href="{% url 'accountapp:update' pk=user.pk %}">
+            <p>
+                Change info
+            </p>
+        </a>
+        {% endif %}
     </div>
 
 {% endblock %}

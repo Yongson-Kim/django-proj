@@ -164,6 +164,8 @@ Thumbs.db
 # 추가
 db.sqlite3
 __pycache__
+.idea
+.vscode
 
 # environ 설정 저장 파일 -> Git으로 공유하면 안되는 파일
 # .env
