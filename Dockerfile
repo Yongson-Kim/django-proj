@@ -2,7 +2,7 @@ FROM python:3.9.5
 
 WORKDIR /home/
 
-RUN echo "testing111"
+RUN echo "testing333"
 
 RUN git clone https://github.com/Yongson-Kim/django-proj.git
 
@@ -13,8 +13,6 @@ RUN pip install -r requirements.txt
 RUN pip install gunicorn
 
 RUN pip install mysqlclient
-
-RUN python manage.py collectstatic
 
 EXPOSE 8000
 
