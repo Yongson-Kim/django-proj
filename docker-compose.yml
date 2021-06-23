@@ -5,7 +5,6 @@ services:
     networks:
       - network
     volumes:
-      # asdfasdfasdf
       - /home/django-proj/nginx.conf:/etc/nginx/nginx.conf
       - static-volume:/data/static
       - media-volume:/data/media
