@@ -1,0 +1,56 @@
+version: "3.7"
+services:
+  nginx:
+    image: nginx:1.19.5
+    networks:
+      - network
+    volumes:
+      # asdfasdfasdf
+      - /home/django-proj/nginx.conf:/etc/nginx/nginx.conf
+      - static-volume:/data/static
+      - media-volume:/data/media
+    ports:
+      # host:nginx container
+      - 9990:80
+  # nginx.conf파일의 proxy_pass에서 지정한 호스트명과 같도록 설정
+  django-gunicorn:
+    image: django-gunicorn:5
+    networks:
+      - network
+    volumes:
+      # asdfasdfasdf
+      - static-volume:/home/django-proj/staticfiles
+      - media-volume:/home/django-proj/media
+    secrets:
+      - MYSQL_PASSWORD
+      - DJANGO_SECRET_KEY
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - network
+    volumes:
+      - maria-database:/var/lib/mysql
+    secrets:
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+    environment:
+      MYSQL_DATABASE: django
+      MYSQL_USER: django
+      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
+
+networks:
+  network:
+
+volumes:
+  static-volume:
+  media-volume:
+  maria-database:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MYSQL_PASSWORD:
+    external: true
+  MYSQL_ROOT_PASSWORD:
+    external: true
