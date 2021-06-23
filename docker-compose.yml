@@ -5,7 +5,7 @@ services:
     networks:
       - network
     volumes:
-      - /home/django-proj/nginx.conf:/etc/nginx/nginx.conf
+      - /mnt/d/yongson/GitHub/django-proj/nginx.conf:/etc/nginx/nginx.conf
       - static-volume:/data/static
       - media-volume:/data/media
     ports:
